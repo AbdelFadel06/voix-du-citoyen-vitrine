@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Apparition } from "@/components/apparition";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -42,7 +43,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className={`${inter.variable} ${jakarta.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${jakarta.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Avant l'affichage : active les animations seulement si JS tourne ; si le composant
+            Apparition ne démarre pas dans les 3 s, tout est affiché quand même. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('js-anim');setTimeout(function(){var r=document.documentElement;if(!r.classList.contains('anim-pret'))r.classList.add('anim-secours')},3000);",
+          }}
+        />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#contenu"
@@ -55,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <Apparition />
       </body>
     </html>
   );

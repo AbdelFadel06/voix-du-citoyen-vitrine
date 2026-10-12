@@ -20,7 +20,7 @@ async function Communes() {
 const QUESTIONS: { q: string; r: ReactNode }[] = [
   {
     q: "L'application est-elle gratuite ?",
-    r: "Oui, entièrement. Pas d'abonnement, pas de frais cachés. Vous n'avez besoin que d'un téléphone Android et d'un numéro de téléphone.",
+    r: "Oui, entièrement. Pas d'abonnement, pas de frais cachés. Vous n'avez besoin que d'un téléphone Android (iPhone bientôt) et d'un numéro de téléphone.",
   },
   {
     q: "La mairie voit-elle mon nom ?",
@@ -34,7 +34,7 @@ const QUESTIONS: { q: string; r: ReactNode }[] = [
     q: "Ma commune est-elle concernée ?",
     r: (
       <>
-        Voix du Citoyen est conçu pour toutes les communes du Bénin.
+        Voix du Citoyen est conçu pour toutes nos communes.
         <Suspense fallback={null}>
           <Communes />
         </Suspense>{" "}
@@ -69,9 +69,9 @@ export function Faq() {
             </>
           }
         />
-        <div className="divide-y divide-line rounded bg-white px-6 ring-1 ring-line md:px-8">
+        <div data-reveal className="divide-y divide-line rounded bg-white px-6 ring-1 ring-line md:px-8">
           {QUESTIONS.map(({ q, r }) => (
-            <details key={q} className="group py-2">
+            <details key={q} name="faq" className="group py-2">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 font-display text-lg font-bold text-ink [&::-webkit-details-marker]:hidden">
                 {q}
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-brand-50 text-brand-600 transition-transform duration-200 group-open:rotate-45">

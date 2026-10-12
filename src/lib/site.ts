@@ -14,7 +14,12 @@ export const APP_SIZE = "≈ 25 Mo";
 export const ESPACE_MAIRIE_URL =
   process.env.NEXT_PUBLIC_ESPACE_MAIRIE_URL ?? "https://api.piecitizenvoice.com/";
 
-export const CONTACT_EMAIL = "contact@piecitizenvoice.com";
+export const CONTACT_EMAIL = "info@piebarometre.com";
+
+export const CONTACT_TELEPHONE = "+229 01 69 49 40 72";
+export const CONTACT_TELEPHONE_LIEN = "tel:+2290169494072";
+
+export const ADRESSE = "Fidjrossè-Centre, Cotonou, Bénin";
 
 export const NAV_LINKS = [
   { href: "/#accueil", label: "Accueil" },

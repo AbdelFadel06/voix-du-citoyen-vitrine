@@ -17,6 +17,7 @@ import {
   Users,
 } from "lucide-react";
 import { CONTACT_EMAIL, ESPACE_MAIRIE_URL } from "@/lib/site";
+import { Carrousel } from "./carrousel";
 import { PhoneMockup } from "./phone-mockup";
 import { ButtonAction, ButtonGhost, Container, Eyebrow, Section, SectionTitle } from "./ui";
 
@@ -26,14 +27,18 @@ export function Hero() {
   return (
     <section id="accueil" className="overflow-hidden bg-white">
       <Container className="grid items-center gap-14 pb-16 pt-10 md:pb-24 md:pt-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-        <div className="max-w-xl">
+        <div className="max-w-xl animate-entree">
           <Eyebrow>
             <span className="h-2 w-2 rounded bg-action-500" />
-            Pour les communes du Bénin
+            Pour nos communes
           </Eyebrow>
           <h1 className="mt-6 text-[2.25rem] font-extrabold text-ink md:text-[3.5rem]">
             Votre commune, <span className="text-brand-500">votre voix.</span>
           </h1>
+          {/* Mobile et tablette : la capture vient juste après le titre. */}
+          <div className="mt-10 flex justify-center lg:hidden">
+            <PhoneMockup />
+          </div>
           <p className="mt-6 text-lg text-muted md:text-xl">
             Signalez un problème, proposez une idée et suivez ce que fait votre mairie. Avec une
             photo, ou simplement en parlant.
@@ -53,7 +58,8 @@ export function Hero() {
             ))}
           </ul>
         </div>
-        <div className="flex justify-center lg:justify-end lg:pr-24">
+        {/* Grand écran : la capture est dans la colonne de droite. */}
+        <div className="hidden animate-entree justify-center [animation-delay:150ms] lg:flex lg:justify-end lg:pr-24">
           <PhoneMockup />
         </div>
       </Container>
@@ -92,7 +98,7 @@ export function CommentCaMarche() {
           title="Trois gestes, moins d'une minute."
           intro="Pas de formulaire compliqué. Pas besoin de savoir écrire. Pas besoin d'adresse."
         />
-        <ol className="relative mt-14 grid gap-6 md:mt-16 md:grid-cols-3 md:gap-8">
+        <ol data-reveal-groupe className="relative mt-14 grid gap-6 md:mt-16 md:grid-cols-3 md:gap-8">
           <div
             aria-hidden="true"
             className="absolute left-[16%] right-[16%] top-10 hidden border-t-2 border-dashed border-white/50 md:block"
@@ -150,7 +156,11 @@ export function Volets() {
           title="Une seule application pour parler à votre mairie."
           intro="Trois espaces simples, pensés pour tout le monde."
         />
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
+        <Carrousel
+          data-reveal-groupe
+          etiquette="Fonctionnalités"
+          className="mt-10 md:mx-0 md:mt-16 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:py-0 md:[&>*]:w-auto"
+        >
           {VOLETS.map((v) => (
             <article
               key={v.titre}
@@ -166,7 +176,7 @@ export function Volets() {
               </p>
             </article>
           ))}
-        </div>
+        </Carrousel>
       </Container>
     </Section>
   );
@@ -207,15 +217,20 @@ export function Atouts() {
           title="Fait pour nos communes, pas pour un bureau."
           intro="Chacun peut se faire entendre, quel que soit son téléphone ou sa langue."
         />
-        <div className="mt-12 grid gap-px overflow-hidden rounded bg-white/10 sm:grid-cols-2 lg:grid-cols-4 md:mt-16">
+        <Carrousel
+          data-reveal-groupe
+          etiquette="Ce qui change tout"
+          ton="clair"
+          className="mt-10 md:mx-0 md:mt-16 md:grid md:grid-cols-2 md:gap-px md:overflow-hidden md:rounded md:bg-white/10 md:px-0 md:py-0 lg:grid-cols-4 md:[&>*]:w-auto"
+        >
           {ATOUTS.map((a) => (
-            <div key={a.titre} className="bg-navy-900 p-7 md:p-8">
+            <div key={a.titre} className="rounded bg-navy-900 p-7 ring-1 ring-white/15 md:rounded-none md:p-8 md:ring-0">
               <a.icon className="h-8 w-8 text-brand-300" aria-hidden="true" />
               <h3 className="mt-5 text-lg font-bold text-white">{a.titre}</h3>
               <p className="mt-2 text-brand-100">{a.texte}</p>
             </div>
           ))}
-        </div>
+        </Carrousel>
       </Container>
     </Section>
   );
@@ -238,9 +253,9 @@ export function PourLesMairies() {
           <SectionTitle
             eyebrow="Pour les mairies"
             title="Voyez ce qui compte pour vos habitants, quartier par quartier."
-            intro="Les signalements arrivent triés, localisés et avec photo. Vous décidez plus vite et vous montrez ce qui avance. Chaque commune du Bénin peut rejoindre Voix du Citoyen."
+            intro="Les signalements arrivent triés, localisés et avec photo. Vous décidez plus vite et vous montrez ce qui avance. Toutes nos communes peuvent rejoindre Voix du Citoyen."
           />
-          <ul className="mt-8 space-y-4">
+          <ul data-reveal-groupe className="mt-8 space-y-4">
             {MAIRIE_POINTS.map((p) => (
               <li key={p.texte} className="flex items-start gap-4">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-brand-50 text-brand-600">
@@ -258,7 +273,9 @@ export function PourLesMairies() {
           </div>
         </div>
 
-        <MairieApercu />
+        <div data-reveal>
+          <MairieApercu />
+        </div>
       </Container>
     </Section>
   );
@@ -360,7 +377,7 @@ export function PourLesOng() {
             title="Agir là où les besoins sont réels."
             intro="Eau, assainissement, santé, éducation : accédez aux signalements qui concernent votre domaine."
           />
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div data-reveal-groupe className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
             {ONG_POINTS.map((p) => (
               <div key={p.titre} className="flex flex-col gap-4 rounded bg-white p-6 lg:flex-row lg:items-start">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded bg-brand-50 text-brand-600">

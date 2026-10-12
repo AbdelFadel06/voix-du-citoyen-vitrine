@@ -3,7 +3,7 @@ import { cacheLife } from "next/cache";
 import { Check } from "lucide-react";
 import { APP_SIZE, PLAY_STORE_URL } from "@/lib/site";
 import { LogoMark } from "./logo";
-import { Container, PlayStoreBadge } from "./ui";
+import { AppStoreBientot, Container, PlayStoreBadge } from "./ui";
 
 async function qrSvg() {
   "use cache";
@@ -23,7 +23,7 @@ export async function Telecharger() {
     <section id="telecharger" className="bg-brand-500 py-16 md:py-24 lg:py-28">
       <Container>
         <div>
-          <div className="grid items-center gap-10 lg:grid-cols-[1.3fr_auto]">
+          <div data-reveal className="grid items-center gap-10 lg:grid-cols-[1.3fr_auto]">
             <div>
               <h2 className="text-[1.75rem] font-extrabold text-white md:text-[2.5rem]">
                 Téléchargez Voix du Citoyen.
@@ -32,7 +32,7 @@ export async function Telecharger() {
               </h2>
               <ul className="mt-6 space-y-2 text-lg text-white">
                 {[
-                  "Android, dès maintenant",
+                  "Déjà disponible sur Android, bientôt sur iPhone",
                   `Application légère : ${APP_SIZE}`,
                   "Connexion avec un code reçu par SMS",
                 ].map((t) => (
@@ -44,8 +44,9 @@ export async function Telecharger() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8">
-                <PlayStoreBadge />
+              <div className="mt-8 grid max-w-md grid-cols-2 gap-3">
+                <PlayStoreBadge className="w-full justify-center" />
+                <AppStoreBientot className="w-full justify-center" />
               </div>
             </div>
 

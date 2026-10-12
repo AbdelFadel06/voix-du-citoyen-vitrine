@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLegale } from "@/components/page-legale";
-import { CONTACT_EMAIL, SITE_URL } from "@/lib/site";
+import { ADRESSE, CONTACT_EMAIL, CONTACT_TELEPHONE, CONTACT_TELEPHONE_LIEN, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -17,7 +17,10 @@ export default function MentionsLegales() {
         sont édités par <strong>LE BAROMETRE</strong>.
       </p>
       <ul>
-        <li>Siège : [adresse à compléter], Bénin</li>
+        <li>Siège : {ADRESSE}</li>
+        <li>
+          Téléphone : <a href={CONTACT_TELEPHONE_LIEN}>{CONTACT_TELEPHONE}</a>
+        </li>
         <li>RCCM / IFU : [à compléter]</li>
         <li>Directeur de la publication : [à compléter]</li>
         <li>

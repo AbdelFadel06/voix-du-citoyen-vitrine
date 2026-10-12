@@ -47,7 +47,7 @@ export default async function Image() {
           </span>
         </div>
         <div style={{ display: "flex", gap: 16 }}>
-          {["Gratuit", "Anonyme", "Message vocal", "Communes du Bénin"].map((t) => (
+          {["Gratuit", "Anonyme", "Message vocal", "Nos communes"].map((t) => (
             <span
               key={t}
               style={{

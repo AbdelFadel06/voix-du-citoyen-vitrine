@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { EnBref, PageLegale, TableauDonnees } from "@/components/page-legale";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { ADRESSE, CONTACT_EMAIL, CONTACT_TELEPHONE, CONTACT_TELEPHONE_LIEN } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
@@ -71,7 +71,10 @@ export default function Confidentialite() {
         responsable du traitement de vos données au sens du Code du numérique du Bénin.
       </p>
       <ul>
-        <li>Adresse : [à compléter], Bénin</li>
+        <li>Adresse : {ADRESSE}</li>
+        <li>
+          Téléphone : <a href={CONTACT_TELEPHONE_LIEN}>{CONTACT_TELEPHONE}</a>
+        </li>
         <li>
           Contact pour vos données :{" "}
           <a href={`mailto:${CONTACT_EMAIL}?subject=Mes%20donn%C3%A9es%20personnelles`}>{CONTACT_EMAIL}</a>

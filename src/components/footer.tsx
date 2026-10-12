@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT_EMAIL, ESPACE_MAIRIE_URL, NAV_LINKS } from "@/lib/site";
+import {
+  ADRESSE,
+  CONTACT_EMAIL,
+  CONTACT_TELEPHONE,
+  CONTACT_TELEPHONE_LIEN,
+  ESPACE_MAIRIE_URL,
+  NAV_LINKS,
+} from "@/lib/site";
 import { Logo } from "./logo";
 import { Container } from "./ui";
 
@@ -38,6 +45,8 @@ export function Footer() {
         </FooterCol>
 
         <FooterCol titre="Contact">
+          <li className="text-brand-100/85">{ADRESSE}</li>
+          <FooterLink href={CONTACT_TELEPHONE_LIEN}>{CONTACT_TELEPHONE}</FooterLink>
           <FooterLink href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</FooterLink>
           <FooterLink href="/mentions-legales">Mentions légales</FooterLink>
           <FooterLink href="/confidentialite">Politique de confidentialité</FooterLink>

@@ -40,7 +40,7 @@ export async function DernieresRealisations() {
   }
 
   return (
-    <ul className="grid gap-6 md:grid-cols-3">
+    <ul data-reveal-groupe className="grid gap-6 md:grid-cols-3">
       {realisations.map((r) => (
         <li key={r.id}>
           <CarteRealisation r={r} />

@@ -36,7 +36,7 @@ Menu burger sur mobile, bouton « Télécharger » toujours visible.
 5. Pour les mairies (tableaux de bord par quartier/secteur, délais, publication des réalisations).
 6. Pour les ONG et partenaires.
 7. **Dernières réalisations** (3 cartes, données réelles de l'API, voir plus bas).
-8. Téléchargement (badge Play Store, QR code, taille de l'app ; App Store seulement s'il existe).
+8. Téléchargement (badge Play Store, QR code, taille de l'app ; App Store affiché « Bientôt disponible », non cliquable).
 9. FAQ : gratuit ? la mairie voit-elle mon nom ? (non) consommation de données ? ma commune
    est-elle concernée ? que se passe-t-il après mon signalement ?
 10. Footer : LE BAROMETRE, partenaires, contact, mentions légales, politique de confidentialité
@@ -48,7 +48,7 @@ Menu burger sur mobile, bouton « Télécharger » toujours visible.
 Phrases courtes, « vous », verbes d'action (Signaler, Proposer, Suivre, Soutenir).
 **Zéro jargon** : pas « OTP », « dashboard », « géolocalisation » → « code reçu par SMS »,
 « votre position ». Mêmes mots que l'app : signalement, suggestion, réalisation, soutenir.
-Positionnement **toutes communes du Bénin** : ne pas centrer le discours sur Parakou (seule
+Positionnement **« nos communes »** (pas « communes du Bénin ») : ne pas centrer le discours sur Parakou (seule
 commune ouverte aujourd'hui) ; la liste réelle vient de `GET /communes/`. Exemples génériques
 (« derrière le grand marché », « mon quartier »).
 

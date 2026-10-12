@@ -52,8 +52,9 @@ export function Header() {
             href="/#telecharger"
             className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded bg-action-500 px-3.5 text-sm font-semibold text-white shadow-md shadow-action-500/25 transition-colors hover:bg-action-600 sm:px-5"
           >
-            <Download className="hidden h-4 w-4 sm:block" aria-hidden="true" />
-            <span className="sm:hidden">Télécharger</span>
+            {/* Très petits écrans (< 360 px) : l'icône seule, le mot reste lu par les lecteurs d'écran. */}
+            <Download className="hidden h-4 w-4 max-[359px]:block sm:block" aria-hidden="true" />
+            <span className="max-[359px]:sr-only sm:hidden">Télécharger</span>
             <span className="hidden sm:inline">Télécharger l&apos;application</span>
           </Link>
           <button
