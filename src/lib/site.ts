@@ -2,13 +2,17 @@ export const SITE_URL = "https://piecitizenvoice.com";
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://api.piecitizenvoice.com";
 
-// À compléter dès que l'application est publiée sur le Play Store.
-export const PLAY_STORE_URL =
-  process.env.NEXT_PUBLIC_PLAY_STORE_URL ??
-  "https://play.google.com/store/apps/details?id=com.lebarometre.voixducitoyen";
+// APK Android en attendant le Play Store : publié en « release » GitHub sous le nom exact
+// `voix-du-citoyen.apk`. Le lien `latest` pointe toujours vers la dernière release publiée.
+export const APK_URL =
+  process.env.NEXT_PUBLIC_APK_URL ??
+  "https://github.com/AbdelFadel06/voix-du-citoyen-vitrine/releases/latest/download/voix-du-citoyen.apk";
+
+// Lien court à partager (WhatsApp, affiches) : redirige vers APK_URL (voir next.config.ts).
+export const APK_LIEN_COURT = "/apk";
 
 // Taille affichée dans la section Téléchargement (à mettre à jour à chaque version).
-export const APP_SIZE = "≈ 25 Mo";
+export const APP_SIZE = "55,9 Mo";
 
 // Espace web des mairies et organisations partenaires.
 export const ESPACE_MAIRIE_URL =

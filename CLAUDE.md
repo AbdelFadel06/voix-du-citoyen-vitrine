@@ -18,7 +18,7 @@ Côté web : la mairie traite les dossiers et suit des tableaux de bord ; les ON
 suivent les signalements de leurs secteurs (lecture seule).
 
 ## Publics (dans l'ordre)
-1. Citoyens → comprendre en 5 s et **télécharger l'app** (Android d'abord, Google Play + QR code).
+1. Citoyens → comprendre en 5 s et **télécharger l'app** (Android d'abord : APK + QR code en attendant le Play Store).
 2. Mairies → bénéfices + « Demander une démonstration » + lien « Espace mairie / organisation ».
 3. ONG / partenaires → transparence, impact.
 
@@ -36,7 +36,11 @@ Menu burger sur mobile, bouton « Télécharger » toujours visible.
 5. Pour les mairies (tableaux de bord par quartier/secteur, délais, publication des réalisations).
 6. Pour les ONG et partenaires.
 7. **Dernières réalisations** (3 cartes, données réelles de l'API, voir plus bas).
-8. Téléchargement (badge Play Store, QR code, taille de l'app ; App Store affiché « Bientôt disponible », non cliquable).
+8. Téléchargement : bouton **APK Android** (`APK_URL` dans `src/lib/site.ts` = GitHub Release
+   `…/releases/latest/download/voix-du-citoyen.apk` ; lien court `/apk` dans `next.config.ts`),
+   QR code vers l'APK, étapes d'installation ; Google Play et App Store en « Bientôt », non cliquables.
+   Nouvelle version de l'app = nouvelle release GitHub avec un fichier nommé exactement
+   `voix-du-citoyen.apk` (aucun commit). Jamais d'APK dans le dépôt.
 9. FAQ : gratuit ? la mairie voit-elle mon nom ? (non) consommation de données ? ma commune
    est-elle concernée ? que se passe-t-il après mon signalement ?
 10. Footer : LE BAROMETRE, partenaires, contact, mentions légales, politique de confidentialité
